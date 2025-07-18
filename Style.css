@@ -1,0 +1,499 @@
+/* General Styling & Root Variables */
+:root {
+    --primary-color: #000000; /* Earthy brown, reminiscent of baked goods */
+    --secondary-color: #D2B48C; /* Soft, warm beige for accents */
+    --text-dark: #333; /* Dark charcoal for main text */
+    --text-light: #555; /* Slightly lighter gray for secondary text */
+    --background-light: #f8f8f8; /* Very light gray for subtle contrast */
+    --background-white: #fff; /* Pure white for clean sections */
+    --shadow-light: 0 2px 5px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+    --shadow-medium: 0 4px 10px rgba(0,0,0,0.1); /* More pronounced shadow */
+    --whatsapp-green: #25d366; /* Warna hijau WhatsApp */
+    --whatsapp-green-hover: #128c7e; /* Warna hijau WhatsApp saat hover */
+
+
+    --spacing-sm: 15px;
+    --spacing-md: 30px;
+    --spacing-lg: 60px;
+    --max-width-content: 1200px;
+}
+
+/* Universal Box-sizing Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    -webkit-font-smoothing: antialiased; /* Improves font rendering on webkit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Improves font rendering on firefox */
+}
+
+/* Section Padding Utility */
+.section-padding {
+    padding: var(--spacing-lg) 5%; /* Consistent vertical padding, responsive horizontal */
+    max-width: var(--max-width-content);
+    margin: 0 auto; /* Center alignment */
+}
+
+/* --- Header and Navigation --- */
+header {
+    background-color: var(--background-white);
+    padding: var(--spacing-sm) 5%;
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+}
+
+nav .logo h1 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: -0.5px; /* Slight adjustment for better visual flow */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: var(--spacing-md);
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out; /* Smooth transition for hover */
+    position: relative; /* For underline effect */
+    padding-bottom: 5px; /* Space for underline */
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Underline effect on hover */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+    color: var(--text-dark);
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.45); /* Slightly darker overlay */
+    z-index: 0; /* Ensure overlay is behind content */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Ensure content is above overlay */
+    max-width: 800px;
+}
+
+.hero h2 {
+    font-size: 3.8em; /* Larger, more impactful heading */
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6); /* More prominent text shadow */
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.4em;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    padding: 14px 30px; /* Slightly larger button */
+    text-decoration: none;
+    border-radius: 8px; /* Slightly more rounded corners */
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    border: none; /* Remove default button border if applied to buttons */
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #8B4513; /* Darker shade of primary */
+    transform: translateY(-3px); /* More noticeable lift effect */
+}
+
+/* --- Section Headings --- */
+h3 {
+    text-align: center;
+    font-size: 2.8em; /* Slightly larger heading */
+    margin-bottom: 50px; /* More space below heading */
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px; /* Space for the decorative line */
+    font-weight: 600; /* Bolder font weight */
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px; /* Longer decorative line */
+    height: 4px; /* Thicker line */
+    background-color: var(--secondary-color);
+    border-radius: 2px; /* Slightly rounded line ends */
+}
+
+/* --- About Section --- */
+#about {
+    background-color: var(--background-white);
+    text-align: center;
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: var(--shadow-medium);
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg); /* Add internal padding */
+}
+
+#about p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.15em; /* Slightly larger text for readability */
+    color: var(--text-light);
+    line-height: 1.7; /* Better line spacing */
+    max-width: 900px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md); /* Consistent gap */
+    margin-top: var(--spacing-md);
+}
+
+.product-item {
+    background-color: var(--background-white);
+    border-radius: 10px; /* Consistent rounded corners */
+    box-shadow: var(--shadow-medium);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-item:hover {
+    transform: translateY(-10px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Stronger shadow on hover */
+}
+
+.product-item img {
+    width: 100%;
+    height: 220px; /* Slightly taller images */
+    object-fit: cover;
+    border-bottom: 1px solid var(--background-light);
+}
+
+.product-item h4 {
+    font-size: 1.6em; /* Larger product title */
+    color: var(--primary-color);
+    margin: var(--spacing-sm) 0 10px; /* Adjust margins */
+    padding: 0 15px;
+}
+
+.product-item p {
+    color: var(--text-light);
+    padding: 0 15px var(--spacing-sm);
+    font-size: 0.9em; /* Slightly smaller for description */
+    min-height: 70px; /* Ensure description height consistency */
+}
+
+.product-item .price {
+    display: block;
+    font-size: 1.6em; /* Larger price font */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.btn-whatsapp {
+    display: block;
+    background-color: #25D366; /* WhatsApp Green */
+    color: var(--background-white);
+    padding: 12px 15px; /* Slightly larger padding */
+    text-decoration: none;
+    border-radius: 0 0 10px 10px; /* Consistent rounded bottom corners */
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1DA851; /* Darker WhatsApp Green */
+}
+
+/* --- Contact Section --- */
+#contact { /* Changed from #kontak to #contact for consistency */
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--background-white);
+    border-radius: 10px; /* Consistent rounded corners */
+    padding: var(--spacing-lg) 5%; /* Adjusted padding */
+    margin-top: var(--spacing-lg);
+}
+
+#contact h3 {
+    color: var(--background-white);
+}
+
+#contact h3::after {
+    background-color: var(--secondary-color);
+}
+
+#contact p {
+    font-size: 1.2em; /* Slightly larger text */
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.btn-large-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366; /* WhatsApp Green */
+    color: var(--background-white);
+    padding: 18px 40px; /* Larger button for prominence */
+    font-size: 1.4em; /* Larger font for call to action */
+    text-decoration: none;
+    border-radius: 10px; /* Consistent rounded corners */
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    margin-top: var(--spacing-md);
+}
+
+.btn-large-whatsapp img {
+    margin-right: 12px; /* Slightly more space for icon */
+    width: 28px; /* Larger icon */
+    height: 28px;
+}
+
+.btn-large-whatsapp:hover {
+    background-color: #1DA851;
+    transform: translateY(-4px); /* More noticeable lift */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* Add shadow on hover */
+}
+
+.contact-info {
+    margin-top: var(--spacing-md);
+    font-size: 1.05em;
+    color: var(--secondary-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--text-dark); /* Darker footer */
+    color: var(--background-white);
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: 0.9em;
+    margin-top: var(--spacing-lg);
+    border-top: 3px solid var(--primary-color); /* Subtle line above footer */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) { /* Tablet size */
+    .hero h2 {
+        font-size: 3em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+    h3 {
+        font-size: 2.2em;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) { /* Smaller tablet and large mobile */
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav .logo h1 {
+        font-size: 1.6em;
+    }
+    nav ul {
+        margin-top: var(--spacing-sm);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        margin: 5px 15px;
+    }
+    .hero {
+        padding: 100px 20px;
+        min-height: 50vh;
+    }
+    .hero h2 {
+        font-size: 2.5em;
+    }
+    .hero p {
+        font-size: 1.1em;
+    }
+    h3 {
+        font-size: 2em;
+        margin-bottom: var(--spacing-md);
+    }
+    .section-padding {
+        padding: var(--spacing-md) 3%;
+    }
+    .product-item img {
+        height: 180px;
+    }
+    .btn-large-whatsapp {
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile phones */
+    nav .logo h1 {
+        font-size: 1.4em;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 8px 0;
+    }
+    .hero {
+        padding: 80px 15px;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 0.95em;
+    }
+    .btn, .btn-large-whatsapp {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .product-item h4 {
+        font-size: 1.4em;
+    }
+    .product-item .price {
+        font-size: 1.4em;
+    }
+    #about p {
+        font-size: 1em;
+    }
+}
+
+/* WhatsApp Button Specific Styling (for menu items) */
+.whatsapp-button {
+    background-color: var(--whatsapp-green); /* Menggunakan variabel dari :root */
+    color: white;
+    padding: 12px 25px; /* Padding lebih besar untuk tampilan lebih "clickable" */
+    border-radius: 30px; /* Lebih membulat (pill shape) */
+    text-decoration: none;
+    display: inline-flex; /* Agar ikon dan teks sejajar */
+    align-items: center; /* Pusatkan secara vertikal */
+    justify-content: center; /* Pusatkan secara horizontal */
+    margin-top: auto; /* Memastikan tombol ada di bagian bawah card menu */
+    font-weight: 600; /* Sedikit lebih tebal */
+    font-size: 1em; /* Ukuran font standar */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan sedang */
+    border: none; /* Pastikan tidak ada border default */
+    cursor: pointer; /* Menunjukkan ini adalah elemen yang dapat diklik */
+    width: fit-content; /* Agar lebar tombol sesuai konten */
+    align-self: center; /* Pusatkan tombol secara horizontal di dalam flex container */
+}
+
+.whatsapp-button i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+    font-size: 1.2em; /* Ukuran ikon sedikit lebih besar */
+}
+
+.whatsapp-button:hover {
+    background-color: var(--whatsapp-green-hover); /* Warna hijau lebih gelap saat hover */
+    transform: translateY(-3px); /* Efek melayang ke atas */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Bayangan lebih kuat saat hover */
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 40px; /* Margin atas sedikit dikecilkan */
+}
+
+/* Styling untuk tombol "Pesan Kopi Sekarang" dan "Lihat Menu Lengkap" */
+.btn-primary {
+    display: inline-block;
+    background: var(--primary-dark); /* Warna cokelat pekat */
+    color: #fff;
+    padding: 15px 35px; /* Padding lebih besar untuk tampilan lebih menonjol */
+    text-decoration: none;
+    border-radius: 30px; /* Lebih membulat (pill shape) */
+    font-weight: 700; /* Lebih tebal */
+    letter-spacing: 0.8px; /* Letter spacing sedikit ditingkatkan */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-medium); /* Bayangan lebih jelas */
+    text-transform: uppercase; /* Huruf kapital semua */
+    font-size: 1.1em; /* Ukuran font sedikit lebih besar */
+    border: 2px solid transparent; /* Border transparan untuk efek hover */
+}
+
+.btn-primary:hover {
+    background: var(--secondary-dark); /* Warna cokelat sedang saat hover */
+    transform: translateY(-4px); /* Efek melayang lebih tinggi */
+    box-shadow: 0 8px 20px var(--shadow-strong); /* Bayangan lebih kuat saat hover */
+    border-color: var(--accent-gold); /* Border emas saat hover */
+}

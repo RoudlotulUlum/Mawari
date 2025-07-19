@@ -497,3 +497,42 @@ footer {
     box-shadow: 0 8px 20px var(--shadow-strong); /* Bayangan lebih kuat saat hover */
     border-color: var(--accent-gold); /* Border emas saat hover */
 }
+.gallery-flexbox {
+  display: flex; /* Mengaktifkan Flexbox */
+  justify-content: space-around; /* Mendistribusikan ruang di antara dan sekitar item */
+  align-items: flex-start; /* Menjajarkan item di awal baris (atas) */
+  flex-wrap: wrap; /* Memungkinkan item untuk pindah ke baris baru jika tidak muat */
+  gap: 15px; /* Memberi jarak antar gambar, ganti dengan margin jika ingin kompatibilitas lebih luas */
+  padding: 10px; /* Memberi padding di sekitar galeri */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-width: 900px; /* Lebar maksimal galeri */
+  margin: 20px auto; /* Pusatkan galeri */
+}
+
+.gallery-flexbox img {
+  width: 30%; /* Setiap gambar mengambil sekitar 30% lebar container */
+  max-width: 250px; /* Batasi lebar maksimal setiap gambar */
+  height: auto; /* Jaga rasio aspek */
+  object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi, mungkin memotong sebagian */
+  border-radius: 5px; /* Sedikit sudut membulat pada gambar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+/* Media query untuk tampilan responsif */
+@media (max-width: 768px) {
+  .gallery-flexbox img {
+    width: 48%; /* Pada layar sedang, 2 gambar per baris */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-flexbox {
+    flex-direction: column; /* Pada layar kecil, tumpuk gambar secara vertikal */
+    align-items: center; /* Pusatkan gambar saat bertumpuk */
+  }
+  .gallery-flexbox img {
+    width: 90%; /* Ambil hampir seluruh lebar */
+    max-width: 300px; /* Batasi lebar maksimal */
+  }
+}
